@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install dependencies
-RUN npm install --legacy-peer-deps
+# RUN npm install --legacy-peer-deps
 
 # Default command: start OpenClaw gateway
 CMD ["npx", "openclaw", "gateway", "start"]
