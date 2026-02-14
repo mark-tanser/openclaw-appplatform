@@ -1,19 +1,22 @@
-# Use Node.js 20 Alpine base image for small size and compatibility
+# Use Node.js 20 Alpine
 FROM node:20-alpine
 
-# Set working directory inside the container
+# Install git (required for npm dependencies fetched via git)
+RUN apk add --no-cache git
+
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json first to leverage Docker cache
+# Copy package.json and package-lock.json first
 COPY package.json package-lock.json* ./
 
 # Install dependencies
 RUN npm install --legacy-peer-deps
 
-# Copy the rest of the repo into the container
+# Copy the rest of the app
 COPY . .
 
-# Set the command to run the Worker
+# Run the worker
 CMD ["npm", "start"]
 
 
