@@ -4,7 +4,7 @@
   "description": "OpenClaw Worker container for DigitalOcean App Platform",
   "main": "index.js",
   "scripts": {
-    "start": "openclaw gateway run --allow-unconfigured"
+    "start": "openclaw gateway run --config openclaw.config.json"
   },
   "dependencies": {
     "openclaw": "^2026.2.9"
