@@ -1,5 +1,5 @@
 # Use Node.js 20 Alpine
-FROM node:20-alpine
+FROM node:22-alpine
 
 # Install git (required for npm dependencies fetched via git)
 RUN apk add --no-cache git
