@@ -16,6 +16,12 @@ RUN npm install --legacy-peer-deps
 # Copy the rest of the app
 COPY . .
 
+# Create OpenClaw config directory
+RUN mkdir -p /root/.config/openclaw
+
+# Create minimal config file
+RUN echo '{ "gateway": { "mode": "local" } }' > /root/.config/openclaw/config.json
+
 # Run the worker
 CMD ["npm", "start"]
 
