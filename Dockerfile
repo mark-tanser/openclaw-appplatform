@@ -17,7 +17,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # Run OpenClaw setup non-interactively
-RUN npx openclaw setup --mode local || true
+RUN yes | npx openclaw setup --mode local
 
 # Run the worker
 CMD ["npx", "openclaw", "gateway", "run"]
